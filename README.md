@@ -13,5 +13,5 @@
 
 * Clone git project
 * Run `npm install` in project directory to install the necessary modules
-* Configure `config.js`
+* Configure `.env`, set the HOST, PORT, PASSWORD, VPN_API_KEY, KICK_MESSAGE values
 * Run `npm start` to start
