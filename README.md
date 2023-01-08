@@ -9,7 +9,7 @@
 * econ ready and set-up, same as here: https://www.npmjs.com/package/teeworlds-econ?activeTab=readme
 * https://vpnapi.io/ API key
 
-### Instalation
+### Installation
 
 * Clone git project
 * Run `npm install` in project directory to install the necessary modules
