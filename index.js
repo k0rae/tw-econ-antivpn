@@ -1,12 +1,11 @@
 const TeeworldsEcon = require('teeworlds-econ');
 const axios = require('axios')
+require('dotenv').config();
 
-const config = require('./config.js');
-
-const econ = new TeeworldsEcon(config.HOST, config.PORT, config.PASSWORD);
+const econ = new TeeworldsEcon(process.env.HOST, process.env.PORT, process.env.PASSWORD);
 
 const checkForVPN = (ip) => {
-    const url = `https://vpnapi.io/api/${ip.split(':')[0]}?key=${config.VPN_API_KEY}`;
+    const url = `https://vpnapi.io/api/${ip.split(':')[0]}?key=${process.env.VPN_API_KEY}`;
 
     axios.get(url).then((res) => {
         if(res.data.security) {
@@ -14,7 +13,7 @@ const checkForVPN = (ip) => {
                 econ.status().then((status) => {
                     status.forEach((user) => {
                         if(user.client === ip) {
-                            econ.exec(`kick ${user.cid} ${config.KICK_MESSAGE}`);
+                            econ.exec(`kick ${user.cid} ${process.env.KICK_MESSAGE}`);
                         }
                     })
                 });
